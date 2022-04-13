@@ -1,0 +1,31 @@
+header {
+    background: linear-gradient(.25turn, lightskyblue, royalblue);
+    color: white;
+    text-align: center;
+
+}
+
+header h1 {
+font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-size: 30px;
+}
+
+.btn {
+    width: 100%;
+    background-color: lightskyblue;
+}
+
+#weatherSummary {
+    border: 1px;
+    border-color: black;
+    border-radius: 5px;
+    border-style: solid;
+    min-height: 200px;
+}
+
+.forecastCard {
+    background-color: royalblue;
+    color: white;
+    margin: 10px;
+
+}
