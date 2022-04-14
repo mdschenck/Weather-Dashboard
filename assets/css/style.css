@@ -2,6 +2,8 @@ header {
     background: linear-gradient(.25turn, lightskyblue, royalblue);
     color: white;
     text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
 
 }
 
@@ -36,4 +38,11 @@ font-size: 30px;
     color: white;
     width: 40px;
 
+}
+
+.summaryIcon {
+    /* float: left */
+    /* float: top; */
+    margin-left: 5px;
+    color: black;
 }
