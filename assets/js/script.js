@@ -11,33 +11,30 @@ var city = document.getElementById("summaryCity");
 var temp = document.getElementById("temp");
 var wind = document.getElementById("wind");
 var humidity = document.getElementById("humidity");
-
 var uvIndex = document.getElementById("uvIndex");
 
 var searchLocation = locationSearch.textContent;
 
-function addEventListeners() {
-  locationSearch.addEventListener("submit", function (event) {
-    event.preventDefault();
-    var element = event.target;
-
-    if (element.matches("searchBtn")) {
-      console.log("search button clicked");
-      console.log(searchLocation);
-      renderWeather();
-    }
-  });
-}
-
-function init() {
-  addEventListeners();
-}
+var baseURL = "http://api.openweathermap.org/";
+var apiKey = "295f6bd4f18e43d6b3b9627ef087838d";
 
 function renderWeather() {
-  //api.openweathermap.org/data/2.5/forecast?id=524901&appid=295f6bd4f18e43d6b3b9627ef087838d
+  var url = `${baseURL}geo/1.0/direct?q={citySearch}&limit=1&appid=${apiKey}`;
 
-  document.getElementById("summaryCity").innerHTML = `<h2>${citySearch}</h2>`;
-  document.getElementById("summaryData").innerHTML = `
+  fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    });
+}
+//baseUrl + data/2.5/weather?lat={lat}&lon={lon}&appid= + apiKey;
+
+//baseUrl + data/2.5/forecast?id=524901&appid= + apiKey;
+
+document.getElementById("summaryCity").innerHTML = `<h2>${searchLocation}</h2>`;
+document.getElementById("summaryData").innerHTML = `
              <dl>
                 <dt>temp:</dt>
              <dd>88.88</dd>
@@ -49,4 +46,23 @@ function renderWeather() {
              <dd class="uvIdx">88</dd>
            </dl>
 `;
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+
+  console.log("search button clicked");
+  console.log(document.getElementById(`locationSearch`).value);
+  console.log(locationSearch.value);
+  renderWeather();
 }
+
+function addEventListeners() {
+  document.addEventListener("submit", handleFormSubmit);
+  console.log();
+}
+
+function init() {
+  addEventListeners();
+}
+
+init();
