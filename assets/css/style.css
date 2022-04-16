@@ -1,3 +1,7 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 header {
     background: linear-gradient(.25turn, lightskyblue, royalblue);
     color: white;
@@ -45,4 +49,10 @@ font-size: 30px;
     /* float: top; */
     margin-left: 5px;
     color: black;
+}
+
+.largeIcon {
+    float: right;
+    size: 300%;
+
 }

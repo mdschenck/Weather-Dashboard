@@ -60,7 +60,7 @@ function renderWeather() {
 
           document.getElementById(
             "summaryCity"
-          ).innerHTML = `<h2>${cityName}</h2>`;
+          ).innerHTML = `<h2>${cityName}</h2>   <img id="cityIcon" src=http://openweathermap.org/img/w/${icon}.png >`;
           document.getElementById("summaryData").innerHTML = `
           <dl>
           <dt>temp:</dt>
@@ -71,11 +71,10 @@ function renderWeather() {
        <dd>${humidityLevel}</dd>
        <dt>UV Index</dt>
        <dd class="uvIdx">${uv}</dd>
-     </dl>
-
-       <h2 class="summaryIcon">${icon} ICON <h2>`;
+     </dl>`;
         });
       populate5day();
+      document.getElementById("cityIcon").classList.add("largeIcon");
     });
 
   function populate5day(data) {
@@ -89,9 +88,9 @@ function renderWeather() {
       var fiveDayIcon = daily.weather[0].icon;
 
       document.getElementById(`day${i}`).innerHTML = `
-    <h2>${fiveDayIcon} ICON <h2>
-
-    <dl>
+    <img src=http://openweathermap.org/img/w/${fiveDayIcon}.png >
+    <h2>Day ${i}</h2>;
+    <dl> 
     <dt>temp:</dt>
  <dd>${fiveDaytemp}</dd>
  <dt>Wind:</dt>
