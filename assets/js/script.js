@@ -1,8 +1,8 @@
-var dayOne = document.getElementById("dayOne");
-var dayTwo = document.getElementById("dayTwo");
-var dayThree = document.getElementById("dayThree");
-var dayFour = document.getElementById("dayFour");
-var dayFive = document.getElementById("dayFive");
+var day1 = document.getElementById("day1");
+var day2 = document.getElementById("day2");
+var day3 = document.getElementById("day3");
+var day4 = document.getElementById("day4");
+var day5 = document.getElementById("day5");
 
 var locationSearch = document.getElementById("locationSearch");
 var searchButton = document.getElementById("searchBtn");
@@ -72,38 +72,43 @@ function renderWeather() {
        <dt>UV Index</dt>
        <dd class="uvIdx">${uv}</dd>
      </dl>`;
+
+          function populate5day(data) {
+            console.log("POPULATE % DAY CALLED");
+
+            // data.forEach(function (daily, i)
+
+            function makeCard() {
+              console.log("makeCard Called");
+              for (var i = 1; i < 6; i++) {
+                console.log(`day${i} card run`);
+                console.log(data);
+                console.log(data[i].temp.day);
+                var fiveDayTemp = data[i].temp.day;
+                var fiveDayWind = data[i].wind_speed;
+                var fiveDayHumidity = data[i].humidity;
+                var fiveDayIcon = data[i].weather[0].icon;
+
+                document.getElementById(`day${i}`).innerHTML = `
+          <img src="http://openweathermap.org/img/w/${fiveDayIcon}.png">
+          <p>Day ${i}</p>
+          <dl> 
+          <dt>temp:</dt>
+          <dd>${fiveDayTemp}</dd>
+          <dt>Wind:</dt>
+          <dd>${fiveDayWind}</dd>
+          <dt>Humidity</dt>
+          <dd>${fiveDayHumidity}</dd>
+          </dl>
+          `;
+              }
+            }
+            makeCard();
+          }
+          populate5day(data.daily);
         });
-      populate5day();
-      document.getElementById("cityIcon").classList.add("largeIcon");
     });
-
-  function populate5day(data) {
-    console.log("POPULATE % DAY CALLED");
-
-    data.forEach(function (daily) {
-      console.log(`day${i} card run`);
-      var fiveDayTemp = daily.temp;
-      var fiveDayWind = daily.wind;
-      var fiveDayHumidity = daily.humidity;
-      var fiveDayIcon = daily.weather[0].icon;
-
-      document.getElementById(`day${i}`).innerHTML = `
-    <img src=http://openweathermap.org/img/w/${fiveDayIcon}.png >
-    <h2>Day ${i}</h2>;
-    <dl> 
-    <dt>temp:</dt>
- <dd>${fiveDaytemp}</dd>
- <dt>Wind:</dt>
- <dd>${fiveDayWind}</dd>
- <dt>Humidity</dt>
- <dd>${fiveDayHumidity}</dd>
-</dl>
-`;
-    });
-  }
 }
-
-//baseUrl + data/2.5/forecast?id=524901&appid= + apiKey;
 
 function handleFormSubmit(event) {
   event.preventDefault();
