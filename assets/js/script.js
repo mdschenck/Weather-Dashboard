@@ -15,7 +15,7 @@ var uvIndex = document.getElementById("uvIndex");
 
 var searchLocation = locationSearch.textContent;
 
-var baseURL = "http://api.openweathermap.org/";
+var baseURL = "https://api.openweathermap.org/";
 var apiKey = "295f6bd4f18e43d6b3b9627ef087838d";
 
 function renderWeather() {
@@ -60,7 +60,7 @@ function renderWeather() {
 
           document.getElementById(
             "summaryCity"
-          ).innerHTML = `<h2>${cityName}</h2>   <img id="cityIcon" src=http://openweathermap.org/img/w/${icon}.png >`;
+          ).innerHTML = `<h2>${cityName}</h2>   <img id="cityIcon" src=https://openweathermap.org/img/w/${icon}.png >`;
           document.getElementById("summaryData").innerHTML = `
           <dl>
           <dt>temp:</dt>
@@ -90,7 +90,7 @@ function renderWeather() {
                 var fiveDayIcon = data[i].weather[0].icon;
 
                 document.getElementById(`day${i}`).innerHTML = `
-          <img src="http://openweathermap.org/img/w/${fiveDayIcon}.png">
+          <img src="https://openweathermap.org/img/w/${fiveDayIcon}.png">
           <p>Day ${i}</p>
           <dl> 
           <dt>temp:</dt>
