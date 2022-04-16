@@ -46,7 +46,7 @@ function renderWeather() {
         .then(function (data) {
           console.log(data);
           //   var weatherObject = data[0];
-          var tempCurrent = data.current.temp;
+          var tempCurrent = (1.8 * (data.current.temp - 273) + 32).toFixed(2);
           var windSpeed = data.current.wind_speed;
           var humidityLevel = data.current.humidity;
           var uv = data.current.uvi;
@@ -60,11 +60,11 @@ function renderWeather() {
 
           document.getElementById(
             "summaryCity"
-          ).innerHTML = `<h2>${cityName}</h2>   <img id="cityIcon" src=https://openweathermap.org/img/w/${icon}.png >`;
+          ).innerHTML = `<h4>${cityName}</h4>   <img id="cityIcon" src=https://openweathermap.org/img/w/${icon}.png >`;
           document.getElementById("summaryData").innerHTML = `
           <dl>
           <dt>temp:</dt>
-       <dd>${tempCurrent}</dd>
+       <dd>${tempCurrent} </dd>
        <dt>Wind:</dt>
        <dd>${windSpeed}</dd>
        <dt>Humidity</dt>
@@ -84,7 +84,9 @@ function renderWeather() {
                 console.log(`day${i} card run`);
                 console.log(data);
                 console.log(data[i].temp.day);
-                var fiveDayTemp = data[i].temp.day;
+                var fiveDayTemp = (1.8 * (data[i].temp.day - 273) + 32).toFixed(
+                  2
+                );
                 var fiveDayWind = data[i].wind_speed;
                 var fiveDayHumidity = data[i].humidity;
                 var fiveDayIcon = data[i].weather[0].icon;
