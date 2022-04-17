@@ -13,6 +13,7 @@ var wind = document.getElementById("wind");
 var humidity = document.getElementById("humidity");
 var uvIndex = document.getElementById("uvIndex");
 var storedSearches = document.getElementById("storedSearches");
+var clearSearch = document.getElementById("clearSearches");
 
 var searchLocation = locationSearch.textContent;
 
@@ -153,7 +154,7 @@ function populateButtons(cities) {
   storedSearches.innerHTML = "";
   for (var i = 0; i < cities.length; i++) {
     var button = document.createElement("button");
-    button.classList = "btn";
+    button.classList = "btn ";
     console.log(cities);
     button.textContent = cities[i];
     button.setAttribute("data-city", cities[i]);
@@ -265,9 +266,18 @@ function handleStoredSearchClk(event) {
   }
 }
 
+function clearStoredSearches(event) {
+  event.preventDefault();
+  console.log("ClearStoredSearches CALLED");
+  var element = event.target;
+  localStorage.clear();
+  location.reload();
+}
+
 function addEventListeners() {
   document.addEventListener("submit", handleFormSubmit);
   storedSearches.addEventListener("click", handleStoredSearchClk);
+  clearSearch.addEventListener("click", clearStoredSearches);
   console.log();
 }
 
