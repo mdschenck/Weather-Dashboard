@@ -36,8 +36,12 @@ This project meets the given Acceptance Criteria:
 
 On load, the user is with a blank weather dashboard, and a search input to enter a city.
 
-![Screenshot showing deployed website calendar display](assets/images/weatherDashboardScreenshot1.JPG)
+![Screenshot showing deployed application on page load](assets/images/weatherDashboardScreenshot1.JPG)
 
 When the user enters a city, the current conditions are displayed in the main content area, and the 5 day forcast is displayed below. The Temperature, Wind Speed, Humidity, and VU Index are displayed in the current conditions, along with a weather conditions icon. For the 5 day forecast, Temperature, Wind Speed, Humidity and the weather Icon are displayed.
 
-![Screenshot showing deployed website calendar display](assets/images/weatherDashboardScreenshot2.JPG)
+![Screenshot showing deployed application with city weather data populated](assets/images/weatherDashboardScreenshot2.JPG)
+
+User searches are stored under the search button and persist in local storage. When the user clicks on a previous search, the site reloads the data for that location. When the user clicks on "Clear" the previous searches are cleared from the display and cleared from local storage.
+
+![Screenshot showing deployed application with city weather data populated and previous searches saved](assets/images/weatherDashboardScreenshot3.JPG)
